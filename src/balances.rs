@@ -14,11 +14,11 @@ impl Pallet {
     }
     //setting balance of an account 
     pub fn set_balance(&mut self, who: &String, amount: u128){
-        self.balances.insert(key: who.clone(), value: amount);
+        self.balances.insert(who.clone(), amount);
     }
     //fetching balance by name
     pub fn balance(&self, who: &String) -> u128{
-        self.balances.get(key:who).unwrap_or(default: &0)
+        *self.balances.get(who).unwrap_or(&0)
     }
 
 }
